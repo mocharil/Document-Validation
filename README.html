@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature, Stamp, and Meterai Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        .highlight {
+            background: #e0f7fa;
+            padding: 10px;
+            border-left: 4px solid #00acc1;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Signature, Stamp, and Meterai Analysis</h1>
+        <p>This project provides an API to analyze documents for signatures, company stamps, and duty stamps (meterai) using the Gemini model.</p>
+
+        <h2>Project Structure</h2>
+        <pre><code>
+project/
+├── images
+├── __init__.py
+├── main.py
+├── api.py
+├── config.py
+├── utils.py
+├── pdf_processor.py
+└── .env
+        </code></pre>
+
+        <h2>Setup and Installation</h2>
+        <p>Follow these steps to set up the project:</p>
+        <ol>
+            <li>Clone the repository:</li>
+            <pre><code>git clone https://github.com/your-repo/signature-stamp-analysis.git</code></pre>
+            <li>Navigate to the project directory:</li>
+            <pre><code>cd signature-stamp-analysis</code></pre>
+            <li>Create a virtual environment and activate it:</li>
+            <pre><code>
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+            </code></pre>
+            <li>Install the required dependencies:</li>
+            <pre><code>pip install -r requirements.txt</code></pre>
+            <li>Create a <code>.env</code> file with your project credentials:</li>
+            <pre><code>
+PROJECT_ID=your-project-id
+CREDENTIALS_FILE_PATH=/path/to/your/credentials.json
+GEMINI_MODEL=name-of-gemini-_model
+            </code></pre>
+        </ol>
+
+        <h2>Running the Application</h2>
+        <p>To start the FastAPI application, run:</p>
+        <pre><code>uvicorn main:app --host 0.0.0.0  --port 2224</code></pre>
+        <p>The application will be available at <a href="http://34.101.213.23:2224">http://34.101.213.23:2224</a></p>
+        <p>The API documentation will be available at <a href="http://34.101.213.23:2224/docs">http://34.101.213.23:2224/docs</a></p>
+        <h2>API Endpoints</h2>
+        <h3>Analyze Document</h3>
+        <p>Endpoint: <code>POST /analyze</code></p>
+        <p>Description: Analyze a document for signatures, stamps, and duty stamps (meterai).</p>
+        <p>Parameters:</p>
+        <ul>
+            <li><code>file</code>: Upload a document file (PDF, PNG, JPEG)</li>
+            <li><code>url</code>: Provide a URL to the document file</li>
+        </ul>
+        <p>Example usage with URL:</p>
+        <pre><code>
+import requests
+
+url = 'http://34.101.213.23:2224/analyze'
+file_url = 'https://example.com/yourfile.pdf'
+
+data = {
+    'url': file_url
+}
+
+response = requests.post(url, data=data)
+
+print(response.status_code)
+print(response.json())
+        </code></pre>
+        <p>Example usage with FILE_PATH:</p>
+        <pre><code>
+import requests
+
+url = 'http://34.101.213.23:2224/analyze'
+file_path = 'path/to/yourfile.pdf'
+
+files = {'file': open(file_path, 'rb')}
+
+response = requests.post(url, files=files)  
+
+print(response.status_code)
+print(response.json())
+        </code></pre>             
+
+        <h2>Environment Variables</h2>
+        <p>The project uses a <code>.env</code> file to manage environment variables. Ensure you have the following variables set:</p>
+        <ul>
+            <li><code>PROJECT_ID</code>: Your Google Cloud project ID</li>
+            <li><code>CREDENTIALS_FILE_PATH</code>: Path to your Google Cloud service account credentials file</li>
+            <li><code>GEMINI_MODEL</code>: Model Name for Gemini API</li>
+        </ul>
+
+        <h2>Directory Structure</h2>
+        <p>Explanation of the project directory structure:</p>
+        <ul>
+            <li><code>__init__.py</code>: Initializes the project module</li>
+            <li><code>main.py</code>: Defines the FastAPI app and includes routing</li>
+            <li><code>api.py</code>: Contains API endpoint definitions</li>
+            <li><code>config.py</code>: Handles project configuration and Vertex AI initialization</li>
+            <li><code>utils.py</code>: Utility functions for content analysis and PDF processing</li>
+            <li><code>pdf_processor.py</code>: Handles PDF processing and conversion to images</li>
+            <li><code>.env</code>: Environment variables file</li>
+        </ul>
+
+        <h2>Notes</h2>
+        <p class="note">Ensure that the images for sample duty stamp and company stamp are located in the <code>images</code> directory.</p>
+    </div>
+</body>
+</html>

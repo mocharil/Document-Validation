@@ -127,4 +127,3 @@ Explanation of the project directory structure:
 ## Notes
 
 *Ensure that the images for sample duty stamp and company stamp are located in the `images` directory.*
-```

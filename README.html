@@ -1,61 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signature, Stamp, and Meterai Analysis</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 2px 5px;
-            border-radius: 5px;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
-            overflow: auto;
-        }
-        .highlight {
-            background: #e0f7fa;
-            padding: 10px;
-            border-left: 4px solid #00acc1;
-        }
-        .note {
-            font-style: italic;
-            color: #7f8c8d;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Signature, Stamp, and Meterai Analysis</h1>
-        <p>This project provides an API to analyze documents for signatures, company stamps, and duty stamps (meterai) using the Gemini model.</p>
+Berikut adalah konversi dari HTML ke format Markdown:
 
-        <h2>Project Structure</h2>
-        <pre><code>
+```markdown
+# Signature, Stamp, and Meterai Analysis
+
+This project provides an API to analyze documents for signatures, company stamps, and duty stamps (meterai) using the Gemini model.
+
+## Project Structure
+
+```plaintext
 project/
 ├── images
 ├── __init__.py
@@ -65,46 +17,65 @@ project/
 ├── utils.py
 ├── pdf_processor.py
 └── .env
-        </code></pre>
+```
 
-        <h2>Setup and Installation</h2>
-        <p>Follow these steps to set up the project:</p>
-        <ol>
-            <li>Clone the repository:</li>
-            <pre><code>git clone https://github.com/your-repo/signature-stamp-analysis.git</code></pre>
-            <li>Navigate to the project directory:</li>
-            <pre><code>cd signature-stamp-analysis</code></pre>
-            <li>Create a virtual environment and activate it:</li>
-            <pre><code>
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-            </code></pre>
-            <li>Install the required dependencies:</li>
-            <pre><code>pip install -r requirements.txt</code></pre>
-            <li>Create a <code>.env</code> file with your project credentials:</li>
-            <pre><code>
-PROJECT_ID=your-project-id
-CREDENTIALS_FILE_PATH=/path/to/your/credentials.json
-GEMINI_MODEL=name-of-gemini-_model
-            </code></pre>
-        </ol>
+## Setup and Installation
 
-        <h2>Running the Application</h2>
-        <p>To start the FastAPI application, run:</p>
-        <pre><code>uvicorn main:app --host 0.0.0.0  --port 2224</code></pre>
-        <p>The application will be available at <a href="http://34.101.213.23:2224">http://34.101.213.23:2224</a></p>
-        <p>The API documentation will be available at <a href="http://34.101.213.23:2224/docs">http://34.101.213.23:2224/docs</a></p>
-        <h2>API Endpoints</h2>
-        <h3>Analyze Document</h3>
-        <p>Endpoint: <code>POST /analyze</code></p>
-        <p>Description: Analyze a document for signatures, stamps, and duty stamps (meterai).</p>
-        <p>Parameters:</p>
-        <ul>
-            <li><code>file</code>: Upload a document file (PDF, PNG, JPEG)</li>
-            <li><code>url</code>: Provide a URL to the document file</li>
-        </ul>
-        <p>Example usage with URL:</p>
-        <pre><code>
+Follow these steps to set up the project:
+
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/your-repo/signature-stamp-analysis.git
+    ```
+
+2. **Navigate to the project directory**:
+    ```sh
+    cd signature-stamp-analysis
+    ```
+
+3. **Create a virtual environment and activate it**:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+4. **Install the required dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+5. **Create a `.env` file with your project credentials**:
+    ```plaintext
+    PROJECT_ID=your-project-id
+    CREDENTIALS_FILE_PATH=/path/to/your/credentials.json
+    GEMINI_MODEL=name-of-gemini-model
+    ```
+
+## Running the Application
+
+To start the FastAPI application, run:
+
+```sh
+uvicorn main:app --host 0.0.0.0 --port 2224
+```
+
+The application will be available at [http://34.101.213.23:2224](http://34.101.213.23:2224)
+
+The API documentation will be available at [http://34.101.213.23:2224/docs](http://34.101.213.23:2224/docs)
+
+## API Endpoints
+
+### Analyze Document
+
+- **Endpoint**: `POST /analyze`
+- **Description**: Analyze a document for signatures, stamps, and duty stamps (meterai).
+- **Parameters**:
+  - `file`: Upload a document file (PDF, PNG, JPEG)
+  - `url`: Provide a URL to the document file
+
+**Example usage with URL**:
+
+```python
 import requests
 
 url = 'http://34.101.213.23:2224/analyze'
@@ -118,9 +89,11 @@ response = requests.post(url, data=data)
 
 print(response.status_code)
 print(response.json())
-        </code></pre>
-        <p>Example usage with FILE_PATH:</p>
-        <pre><code>
+```
+
+**Example usage with FILE_PATH**:
+
+```python
 import requests
 
 url = 'http://34.101.213.23:2224/analyze'
@@ -132,30 +105,31 @@ response = requests.post(url, files=files)
 
 print(response.status_code)
 print(response.json())
-        </code></pre>             
+```
 
-        <h2>Environment Variables</h2>
-        <p>The project uses a <code>.env</code> file to manage environment variables. Ensure you have the following variables set:</p>
-        <ul>
-            <li><code>PROJECT_ID</code>: Your Google Cloud project ID</li>
-            <li><code>CREDENTIALS_FILE_PATH</code>: Path to your Google Cloud service account credentials file</li>
-            <li><code>GEMINI_MODEL</code>: Model Name for Gemini API</li>
-        </ul>
+## Environment Variables
 
-        <h2>Directory Structure</h2>
-        <p>Explanation of the project directory structure:</p>
-        <ul>
-            <li><code>__init__.py</code>: Initializes the project module</li>
-            <li><code>main.py</code>: Defines the FastAPI app and includes routing</li>
-            <li><code>api.py</code>: Contains API endpoint definitions</li>
-            <li><code>config.py</code>: Handles project configuration and Vertex AI initialization</li>
-            <li><code>utils.py</code>: Utility functions for content analysis and PDF processing</li>
-            <li><code>pdf_processor.py</code>: Handles PDF processing and conversion to images</li>
-            <li><code>.env</code>: Environment variables file</li>
-        </ul>
+The project uses a `.env` file to manage environment variables. Ensure you have the following variables set:
 
-        <h2>Notes</h2>
-        <p class="note">Ensure that the images for sample duty stamp and company stamp are located in the <code>images</code> directory.</p>
-    </div>
-</body>
-</html>
+- `PROJECT_ID`: Your Google Cloud project ID
+- `CREDENTIALS_FILE_PATH`: Path to your Google Cloud service account credentials file
+- `GEMINI_MODEL`: Model Name for Gemini API
+
+## Directory Structure
+
+Explanation of the project directory structure:
+
+- `__init__.py`: Initializes the project module
+- `main.py`: Defines the FastAPI app and includes routing
+- `api.py`: Contains API endpoint definitions
+- `config.py`: Handles project configuration and Vertex AI initialization
+- `utils.py`: Utility functions for content analysis and PDF processing
+- `pdf_processor.py`: Handles PDF processing and conversion to images
+- `.env`: Environment variables file
+
+## Notes
+
+*Ensure that the images for sample duty stamp and company stamp are located in the `images` directory.*
+```
+
+Markdown ini akan memberikan format yang bersih dan mudah dibaca untuk README proyek Anda. Anda bisa menambahkan file ini sebagai `README.md` di root direktori proyek Anda sehingga akan tampil otomatis di halaman utama repository GitHub Anda.

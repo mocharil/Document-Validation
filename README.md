@@ -4,7 +4,7 @@
 This project provides an API to analyze documents for signatures, company stamps, and duty stamps (meterai) using the Gemini model.
 
 ## Project Structure
-
+```plaintext
 project/
 ├── images
 ├── __init__.py
@@ -14,7 +14,7 @@ project/
 ├── utils.py
 ├── pdf_processor.py
 └── .env
-
+```
 
 ## Setup and Installation
 

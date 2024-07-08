@@ -1,5 +1,3 @@
-Berikut adalah konversi dari HTML ke format Markdown:
-
 ```markdown
 # Signature, Stamp, and Meterai Analysis
 

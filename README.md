@@ -53,7 +53,7 @@ Follow these steps to set up the project:
 To start the FastAPI application, run:
 
 ```sh
-uvicorn main:app --host 0.0.0.0 --port 2224
+uvicorn main:app --host 0.0.0.0 --port [port]
 ```
 
 The application will be available at [http://localhost:[port]](http://localhost:[port])

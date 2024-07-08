@@ -56,9 +56,9 @@ To start the FastAPI application, run:
 uvicorn main:app --host 0.0.0.0 --port 2224
 ```
 
-The application will be available at [http://34.101.213.23:2224](http://34.101.213.23:2224)
+The application will be available at [http://localhost:[port]](http://localhost:[port])
 
-The API documentation will be available at [http://34.101.213.23:2224/docs](http://34.101.213.23:2224/docs)
+The API documentation will be available at [http://localhost:[port]/docs](http://localhost:[port]/docs)
 
 ## API Endpoints
 
@@ -75,7 +75,7 @@ The API documentation will be available at [http://34.101.213.23:2224/docs](http
 ```python
 import requests
 
-url = 'http://34.101.213.23:2224/analyze'
+url = 'http://localhost:[port]/analyze'
 file_url = 'https://example.com/yourfile.pdf'
 
 data = {
@@ -93,7 +93,7 @@ print(response.json())
 ```python
 import requests
 
-url = 'http://34.101.213.23:2224/analyze'
+url = 'http://localhost:[port]/analyze'
 file_path = 'path/to/yourfile.pdf'
 
 files = {'file': open(file_path, 'rb')}
@@ -128,5 +128,3 @@ Explanation of the project directory structure:
 
 *Ensure that the images for sample duty stamp and company stamp are located in the `images` directory.*
 ```
-
-Markdown ini akan memberikan format yang bersih dan mudah dibaca untuk README proyek Anda. Anda bisa menambahkan file ini sebagai `README.md` di root direktori proyek Anda sehingga akan tampil otomatis di halaman utama repository GitHub Anda.
